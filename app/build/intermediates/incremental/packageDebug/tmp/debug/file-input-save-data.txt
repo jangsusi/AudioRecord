@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Thu Nov 21 22:32:36 KST 2019
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\jsb56\\AndroidStudioProjects\\AudioRecorder\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.path=classes.dex
+0.set=DEX
+count=1
