@@ -8,19 +8,12 @@
         android:label="dorundorun"
         android:name=".BasicApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
-
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PassiveActivity">
 
-        </activity>
-        <activity android:name=".AutoOrPassive">
-
-        </activity>
-        <activity android:name=".AutoActivity">
-
-
-        </activity>
+        <activity android:name=".PassiveActivity"/>
+        <activity android:name=".AutoOrPassive"/>
+        <activity android:name=".AutoActivity"/>
         <activity android:name=".NoticeSelectActivity"/>
         <activity android:name=".NoticeMainActivity"/>
         <activity android:name=".MeetingMainActivity"/>
@@ -32,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".SendSoundService"/>
         <service android:name=".AudioService1"/>
         <service
             android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
