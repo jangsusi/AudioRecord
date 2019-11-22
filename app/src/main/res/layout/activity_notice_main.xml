@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/back"
@@ -15,146 +15,146 @@
         android:layout_marginTop="10dp">
     </ImageView>
 
-
-    <LinearLayout
+    <ToggleButton
+        android:id="@+id/toggle_notice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="horizontal">
+        android:textOn="감지 ON"
+        android:textOff="감지 OFF"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-            >
-
-          <LinearLayout
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_margin="10dp"
-              >
-
-              <CheckBox
-                  android:id="@+id/thunder"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_centerInParent="true"
-
-                  android:checked="true"
-
-                  android:textSize="20sp"
-                  android:clickable="true"/>
-
-              <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="천둥 소리"
-                  android:id="@+id/txt_thunder"
-
-                  android:textSize="20sp"
-                  android:textColor="#000000"
-                  />
-          </LinearLayout>
-
-
-
-            <CheckBox
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="고함 소리"
-                android:checked="false"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:clickable="true"/>
+                android:orientation="vertical">
 
-            <CheckBox
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <CheckBox
+                      android:id="@+id/thunder"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_centerInParent="true"
+                      android:checked="true"
+                      android:textSize="20sp"
+                      android:clickable="true"/>
+
+                    <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="천둥 소리"
+                      android:id="@+id/txt_thunder"
+                      android:textSize="20sp"
+                      android:textColor="#000000"/>
+                </LinearLayout>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="고함 소리"
+                    android:checked="false"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:clickable="true"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="자동차 소리"
+                    android:checked="false"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:clickable="true"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="경적소리"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:checked="true"
+                    android:clickable="true"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="자동차 소리"
-                android:checked="false"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:clickable="true"/>
+                android:orientation="vertical"
+                android:layout_marginLeft="30dp">
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="경적소리"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:checked="true"
-                android:clickable="true"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="천둥 소리"
+                    android:checked="true"
+                    android:clickable="true"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"/>
 
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="고함 소리"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:checked="false"
+                    android:clickable="true"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="자동차 소리"
+                    android:checked="false"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:clickable="true"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="경적소리"
+                    android:checked="true"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:clickable="true"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="슬롯을 추가하세요"
+                    android:textColor="#0861E9"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:checked="false"
+                    android:clickable="false"/>
+
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="vertical"
-            android:layout_marginLeft="30dp">
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="천둥 소리"
-                android:checked="true"
-
-                android:clickable="true"
-                android:layout_margin="10dp"
-                android:textSize="20sp"/>
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="고함 소리"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:checked="false"
-                android:clickable="true"
-                />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="자동차 소리"
-
-                android:checked="false"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:clickable="true"/>
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="경적소리"
-                android:checked="true"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:clickable="true"/>
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="슬롯을 추가하세요"
-                android:textColor="#0861E9"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:checked="false"
-                android:clickable="false"/>
-
-        </LinearLayout>
-
     </LinearLayout>
 
-
-</RelativeLayout>
+</LinearLayout>

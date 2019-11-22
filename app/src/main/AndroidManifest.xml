@@ -8,36 +8,33 @@
         android:label="dorundorun"
         android:name=".BasicApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
-
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PassiveActivity">
 
-        </activity>
-        <activity android:name=".AutoOrPassive">
-
-        </activity>
-        <activity android:name=".AutoActivity">
-
-
-        </activity>
+        <activity android:name=".PassiveActivity"/>
+        <activity android:name=".AutoOrPassive"/>
+        <activity android:name=".AutoActivity"/>
         <activity android:name=".NoticeSelectActivity"/>
         <activity android:name=".NoticeMainActivity"/>
         <activity android:name=".MeetingMainActivity"/>
         <activity android:name=".InterviewMainActivity"/>
         <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".LiteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LiteActivity">
+
+        </activity>
+
         <activity android:name=".FCMActivity">
 
         </activity>
+
+        <service android:name=".SendSoundService"/>
+
         <service android:name=".AudioService1"/>
 
         <service
@@ -54,9 +51,11 @@
             </intent-filter>
         </service>
     </application>
+
 <uses-sdk android:minSdkVersion="14" />
 	<uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <meta-data
