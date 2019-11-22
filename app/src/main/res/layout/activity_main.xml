@@ -4,39 +4,91 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
         android:id="@+id/mypage"
         android:layout_alignParentRight="true"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:src="@drawable/account"
+        android:adjustViewBounds="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"/>
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/logo"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:adjustViewBounds="true"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/banner"
+        android:id="@+id/banner"
+        android:layout_marginBottom="0dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="광고 문의 환영"
         android:layout_alignParentRight="true"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="100dp"/>
+
+
     <LinearLayout
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        android:orientation="vertical"
         android:padding="10px"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/linear">
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:id="@+id/notice"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/radius"
+            android:layout_marginRight="10dp"
+            android:textColor="#ffffff"
             android:text="알림"/>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/radius"
             android:id="@+id/meeting"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#ffffff"
             android:text="회의"/>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/radius"
             android:id="@+id/interview"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="면접"/>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/banner"
+        android:layout_marginBottom="100dp"
+        android:layout_centerHorizontal="true"
+        android:text="Copyright 2019 두런두런 All right reserved.\n
+                2019 IT Engineering"
+
+        />
 </RelativeLayout>

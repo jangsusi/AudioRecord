@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="경적 소리"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:tag="1"
+        />
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사이렌 소리"
+            android:layout_margin="10dp"
+
+            android:textSize="20sp"
+            android:tag="2"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:id="@+id/radio3"
+            android:layout_margin="10dp"
+
+            android:layout_height="wrap_content"
+            android:text="강아지 소리"
+            android:textSize="20sp"
+            android:tag="3"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:id="@+id/radio4"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:text="고양이 소리"
+            android:tag="4"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+
+            android:id="@+id/radio5"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="공사장 소리"
+            android:tag="5"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+
+            android:layout_height="wrap_content"
+            android:id="@+id/radio6"
+            android:text="고함 소리"
+            android:textSize="20sp"
+            android:tag="6"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:id="@+id/radio7"
+            android:text="비오는 소리"
+            android:textSize="20sp"
+            android:tag="7"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:id="@+id/radio8"
+            android:textSize="20sp"
+            android:text="기침 소리"
+            android:tag="8"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+
+            android:layout_height="wrap_content"
+            android:id="@+id/radio9"
+            android:text="새 소리"
+            android:textSize="20sp"
+            android:tag="9"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:id="@+id/radio10"
+            android:text="천둥 소리"
+            android:textSize="20sp"
+            android:tag="10"/>
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/back"
+        android:adjustViewBounds="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/back"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
+    </ImageView>
+
+</RelativeLayout>
