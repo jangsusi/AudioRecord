@@ -32,7 +32,7 @@ public class AutoMethod {
 
     RecordAudio recordTask;
     PlayAudio playTask;
-    final int CUSTOM_FREQ_SOAP = 2;;
+    final int CUSTOM_FREQ_SOAP = 2;
 
     File recordingFile;
 
@@ -109,18 +109,18 @@ public class AutoMethod {
 
                 dos.close();
             }
-            } catch(FileNotFoundException e){
-                e.printStackTrace();
-            } catch(IOException e){
-                e.printStackTrace();
-            }
+        } catch(FileNotFoundException e){
+            e.printStackTrace();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
 
 
-            Message msg = handler.obtainMessage(VOICE_PLAYING);
-            handler.sendMessage(msg);
+        Message msg = handler.obtainMessage(VOICE_PLAYING);
+        handler.sendMessage(msg);
 
-            playTask = new PlayAudio();
-            playTask.execute();
+        playTask = new PlayAudio();
+        playTask.execute();
 
     }
 
@@ -202,18 +202,18 @@ public class AutoMethod {
                         MediaRecorder.AudioSource.MIC, outfrequency,
                         channelConfiguration, audioEncoding, bufferSize);
                 while (imsi_cnt<5) {
-                msg = handler.obtainMessage( VOICE_RECONIZING );
-                handler.sendMessage( msg );
-                File f=file_data.get(imsi_cnt);
-                dos = new DataOutputStream(
-                        new BufferedOutputStream(new FileOutputStream(
-                                f)));
+                    msg = handler.obtainMessage( VOICE_RECONIZING );
+                    handler.sendMessage( msg );
+                    File f=file_data.get(imsi_cnt);
+                    dos = new DataOutputStream(
+                            new BufferedOutputStream(new FileOutputStream(
+                                    f)));
 
 
-                short[] buffer = null;
-                audioRecord.startRecording();
-                int total = 0;
-                buffer = new short[bufferSize];
+                    short[] buffer = null;
+                    audioRecord.startRecording();
+                    int total = 0;
+                    buffer = new short[bufferSize];
 
 
                     buffer = new short[bufferSize];
