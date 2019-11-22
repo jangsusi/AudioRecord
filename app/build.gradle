@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.audiorecorder"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -15,6 +15,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    aaptOptions {
+        noCompress "tflite"
     }
 }
 
@@ -28,4 +31,9 @@ dependencies {
     implementation 'com.amazonaws:aws-android-sdk-core:2.2.+'
     implementation 'com.amazonaws:aws-android-sdk-s3:2.2.+'
     implementation 'com.amazonaws:aws-android-sdk-ddb:2.2.+'
+    implementation 'com.google.firebase:firebase-core:11.8.0'
+    implementation 'com.google.firebase:firebase-messaging:11.8.0'
+    implementation 'org.tensorflow:tensorflow-lite:+'
+
 }
+apply plugin: "com.google.gms.google-services"

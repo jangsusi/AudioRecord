@@ -15,14 +15,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.amazonaws.auth.CognitoCachingCredentialsProvider;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
-import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility;
-import com.amazonaws.regions.Region;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
@@ -33,17 +25,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class PassiveActivity extends Activity {
-	CognitoCachingCredentialsProvider credentialsProvider;
-	AmazonS3 s3;
-	TransferUtility transferUtility;
-	TransferObserver observer;
+
+
+
 
 
 	RecordAudio recordTask;
 	PlayAudio playTask;
 	final int CUSTOM_FREQ_SOAP = 2;;
 	Button startRecordingButton, stopRecordingButton, startPlaybackButton,
-			stopPlaybackButton,sendbutton;
+			stopPlaybackButton;
 	TextView statusText;
 
 	File recordingFile;
@@ -62,7 +53,9 @@ public class PassiveActivity extends Activity {
 		setContentView(R.layout.main);
 
 
-		sendbutton=(Button)findViewById(R.id.SendButton);
+
+
+
 		startRecordingButton = (Button) findViewById(R.id.StartRecordingButton);
 		stopRecordingButton = (Button) findViewById(R.id.StopRecordingButton);
 		startPlaybackButton = (Button) findViewById(R.id.StartPlaybackButton);
@@ -104,30 +97,6 @@ public class PassiveActivity extends Activity {
 		});
 
 
-		sendbutton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				//recordingFile보내기
-				credentialsProvider = new CognitoCachingCredentialsProvider(
-						getApplicationContext(),
-						"ap-northeast-1:e4331b6e-34f8-4934-bf13-************", // Identity Pool ID
-						Regions.AP_NORTHEAST_1 // Region
-				);
-				s3 = new AmazonS3Client(credentialsProvider);
-				transferUtility = new TransferUtility(s3, getApplicationContext());
-				observer = transferUtility.upload(
-
-						"i",     /* 업로드 할 버킷 이름 */
-						"recordingFile",    /* 버킷에 저장할 파일의 이름 */
-						recordingFile        /* 버킷에 저장할 파일  */
-				);
-				s3.setRegion(Region.getRegion(Regions.AP_NORTHEAST_2));
-				s3.setEndpoint("s3.ap-northeast-2.amazonaws.com");
-			}
-		});
-
-
-		sendbutton.setEnabled(false);
 		stopRecordingButton.setEnabled(false);
 		startPlaybackButton.setEnabled(false);
 		stopPlaybackButton.setEnabled(false);
@@ -176,8 +145,11 @@ public class PassiveActivity extends Activity {
 
 	public void stopRecording() {
 		isRecording = false;
-		sendbutton.setEnabled(true);
+
 	}
+
+
+
 
 	private class PlayAudio extends AsyncTask<Void, Integer, Void> {
 		@Override

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "453603150186",
+    "firebase_url": "https://test-58985.firebaseio.com",
+    "project_id": "test-58985",
+    "storage_bucket": "test-58985.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453603150186:android:b42273766e34ebecb2bd13",
+        "android_client_info": {
+          "package_name": "com.example.audiorecorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453603150186-r3sc7chr1l1uofad18katpsho0pvlcfo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7XbJnFxE-Xc46NmblNvXfxn3YBlMwv7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453603150186-r3sc7chr1l1uofad18katpsho0pvlcfo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
