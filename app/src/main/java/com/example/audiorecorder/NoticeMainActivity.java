@@ -7,9 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class NoticeMainActivity extends AppCompatActivity {
     TextView txt;
+    private ToggleButton btnToggleNotice;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,18 @@ public class NoticeMainActivity extends AppCompatActivity {
             txt.setTag("2");
 
         }
+
+        btnToggleNotice = findViewById(R.id.toggle_notice);
+        btnToggleNotice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (btnToggleNotice.isChecked()) {
+                    Toast.makeText(getApplicationContext(), "Toggle ON", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Toggle Off", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
