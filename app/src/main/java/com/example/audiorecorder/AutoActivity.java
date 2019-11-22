@@ -1,13 +1,9 @@
 package com.example.audiorecorder;
 
 import android.annotation.TargetApi;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,7 +22,7 @@ public class AutoActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_auto_activity);
 
 
         BasicApplication.MyHandler myHandler=new BasicApplication.MyHandler();
