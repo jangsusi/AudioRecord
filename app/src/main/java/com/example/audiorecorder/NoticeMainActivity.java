@@ -28,15 +28,6 @@ public class NoticeMainActivity extends AppCompatActivity {
     private TextView txt;
     private ToggleButton btnToggleNotice;
 
-    private int mAudioSource = MediaRecorder.AudioSource.MIC;
-    private int mSampleRate = 44100;
-    private int mChannelCount = AudioFormat.CHANNEL_IN_STEREO;
-    private int mAudioFormat = AudioFormat.ENCODING_PCM_16BIT;
-    private int mBufferSize = AudioTrack.getMinBufferSize(mSampleRate, mChannelCount, mAudioFormat);
-    public AudioRecord mAudioRecord = null;
-    public Thread mRecordThread = null;
-    public boolean isRecording = false;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,67 +85,19 @@ public class NoticeMainActivity extends AppCompatActivity {
 
         }
 
-        mRecordThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                byte[] readData = new byte[mBufferSize];
-//                String mFilepath = "dorun.mp3";
-                String mFilepath = Environment.getExternalStorageDirectory().getAbsolutePath() +"/record.mp3";
-                File file = new File(mFilepath);
-                if (!file.exists()) {
-                    try {
-                        file.createNewFile();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                Log.d(TAG, "filepath is " + mFilepath);
-                FileOutputStream fos = null;
-                try {
-                    fos = new FileOutputStream(mFilepath, true);
-                } catch(FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-
-                while(isRecording) {
-                    int ret = mAudioRecord.read(readData, 0, mBufferSize);  //  AudioRecord의 read 함수를 통해 pcm data 를 읽어옴
-                    Log.d(TAG, "read bytes is " + ret);
-
-                    try {
-                        fos.write(readData, 0, mBufferSize);    //  읽어온 readData 를 파일에 write 함
-                    }catch (IOException e){
-                        e.printStackTrace();
-                    }
-                }
-
-                mAudioRecord.stop();
-                mAudioRecord.release();
-                mAudioRecord = null;
-
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        final SendSoundThread thread = new SendSoundThread();
 
         btnToggleNotice = findViewById(R.id.toggle_notice);
         btnToggleNotice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (btnToggleNotice.isChecked()) {
+                    // TODO : 무한루프 현상 수정
                     Toast.makeText(getApplicationContext(), "Toggle ON", Toast.LENGTH_SHORT).show();
-                    isRecording = true;
-                    if(mAudioRecord == null) {
-                        mAudioRecord =  new AudioRecord(mAudioSource, mSampleRate, mChannelCount, mAudioFormat, mBufferSize);
-                        mAudioRecord.startRecording();
-                    }
-                    mRecordThread.start();
+                    thread.run();
                 } else {
                     Toast.makeText(getApplicationContext(), "Toggle Off", Toast.LENGTH_SHORT).show();
-                    isRecording = false;
+                    thread.stopForever();
                 }
             }
         });

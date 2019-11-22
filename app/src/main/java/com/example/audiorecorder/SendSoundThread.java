@@ -2,9 +2,14 @@ package com.example.audiorecorder;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
+import android.media.AudioTrack;
 import android.media.MediaRecorder;
+import android.os.Environment;
 import android.util.Log;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -15,60 +20,74 @@ import java.util.logging.Handler;
 public class SendSoundThread extends Thread {
     private final String TAG = "[SendThread]";
 
-    private boolean isRun = true;
     private String host = "localhost";
     private int port = 1111;
     private byte[] buffer;
     public static DatagramSocket socket;
 
-    private AudioRecord recorder;
-    private int sampleRate = 48000;/**8000, 16000, 22050, 24000, 32000, 44100, 48000 Choose the best for the device and the bandwidth **/
-    private int channelConfig = AudioFormat.CHANNEL_CONFIGURATION_MONO;
-    private int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
-    private int minBufSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
-    private boolean status = true;
+    private int mAudioSource = MediaRecorder.AudioSource.MIC;
+    private int mSampleRate = 44100;
+    private int mChannelCount = AudioFormat.CHANNEL_IN_STEREO;
+    private int mAudioFormat = AudioFormat.ENCODING_PCM_16BIT;
+    private int mBufferSize = AudioTrack.getMinBufferSize(mSampleRate, mChannelCount, mAudioFormat);
+    public AudioRecord mAudioRecord = null;
+    public Thread mRecordThread = null;
+    public boolean isRecording = false;
 
     public SendSoundThread() {
     }
 
     public void stopForever() {
         synchronized (this) {
-            this.isRun = false;
+            this.isRecording = false;
         }
     }
-
     @Override
     public void run() {
-        this.isRun = true;
+        isRecording = true;
+        if(mAudioRecord == null) {
+            mAudioRecord =  new AudioRecord(mAudioSource, mSampleRate, mChannelCount, mAudioFormat, mBufferSize);
+            mAudioRecord.startRecording();
+        }
 
-//        try {
-//            DatagramSocket socket = new DatagramSocket();
-//            byte[] buffer = new byte[minBufSize];
-//            DatagramPacket packet;
-//            final InetAddress destination = InetAddress.getByName(host);
-            recorder = new AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig,audioFormat, minBufSize*10);
+        byte[] readData = new byte[mBufferSize];
+        String mFilepath = Environment.getExternalStorageDirectory().getAbsolutePath() +"/dorun.mp3";
+        File file = new File(mFilepath);
+        if (!file.exists()) {
             try {
-                recorder.startRecording();
-            } catch (IllegalStateException e) {
+                file.createNewFile();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
 
-            while(status) {
-                //reading data from MIC into buffer
-                minBufSize = recorder.read(buffer, 0, buffer.length);
+        Log.d(TAG, "filepath is " + mFilepath);
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(mFilepath, true);
+        } catch(FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
-                //putting buffer in the packet
-//                packet = new DatagramPacket(buffer, buffer.length, destination,port);
+        while(isRecording) {
+            int ret = mAudioRecord.read(readData, 0, mBufferSize);  //  AudioRecord의 read 함수를 통해 pcm data 를 읽어옴
+            Log.d(TAG, "read bytes is " + ret);
 
-//                socket.send(packet);
-                Log.d(TAG, minBufSize+"");
+            try {
+                fos.write(readData, 0, mBufferSize);    //  읽어온 readData 를 파일에 write 함
+            }catch (IOException e){
+                e.printStackTrace();
             }
+        }
 
-//        } catch(UnknownHostException e) {
-//            Log.e("Ex", "UnknownHostException");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            Log.e("EX", "IOException");
-//        }
+        mAudioRecord.stop();
+        mAudioRecord.release();
+        mAudioRecord = null;
+
+        try {
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
