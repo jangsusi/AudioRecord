@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\jsb56\\AndroidStudioProjects\\AudioRecorder\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-da\\values-da.xml",
+            "outputFile": "C:\\Users\\jsb56\\AndroidStudioProjects\\AudioRecord\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-da\\values-da.xml",
             "map": [
                 {
                     "source": "C:\\Users\\jsb56\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\4d196d616b15f56f98471b24c1e13e50\\res\\values-da\\values-da.xml",

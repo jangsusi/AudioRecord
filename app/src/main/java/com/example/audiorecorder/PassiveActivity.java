@@ -117,7 +117,7 @@ public class PassiveActivity extends Activity {
 				transferUtility = new TransferUtility(s3, getApplicationContext());
 				observer = transferUtility.upload(
 
-						MY_BUCKET,     /* 업로드 할 버킷 이름 */
+						"i",     /* 업로드 할 버킷 이름 */
 						"recordingFile",    /* 버킷에 저장할 파일의 이름 */
 						recordingFile        /* 버킷에 저장할 파일  */
 				);

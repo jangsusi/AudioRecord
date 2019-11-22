@@ -8,22 +8,29 @@
         android:label="dorundorun"
         android:name=".BasicApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:name=".BasicApplication"
+
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".PassiveActivity">
 
         </activity>
         <activity android:name=".AutoOrPassive">
+
+        </activity>
+        <activity android:name=".AutoActivity">
+
+
+        </activity>
+        <activity android:name=".NoticeSelectActivity"/>
+        <activity android:name=".NoticeMainActivity"/>
+        <activity android:name=".MeetingMainActivity"/>
+        <activity android:name=".InterviewMainActivity"/>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".AutoActivity">
-
-
         </activity>
         <service android:name=".AudioService1"/>
         <service
