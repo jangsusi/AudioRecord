@@ -27,7 +27,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10px"
+            android:padding="10dp"
             android:src="@drawable/noun_interview_967938"
             />
         <Button
